@@ -16,7 +16,7 @@ const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Index() {
@@ -62,7 +62,7 @@ export default function Index() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
-              to="#"
+              to="/login"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Log in <span aria-hidden="true">&rarr;</span>
