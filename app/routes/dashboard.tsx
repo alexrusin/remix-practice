@@ -8,8 +8,8 @@ import { Outlet } from "@remix-run/react";
 
 export default function Example() {
   return (
-    <div className="flex justify-center mt-8">
-      <div className="max-w-7xl">
+    <div className="flex items-center justify-center mt-8">
+      <div>
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="min-w-0 flex-1">
             <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
@@ -47,7 +47,9 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <Outlet />
+        <div className="mt-6">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
