@@ -13,6 +13,7 @@ const navigationInit = [
   { name: "Dashboard", href: "/dashboard", current: false },
   { name: "Team", href: "/dashboard/team", current: false },
   { name: "Projects", href: "/dashboard/projects", current: false },
+  {name: "Wiki", href: "/dashboard/wiki", current: false}
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
