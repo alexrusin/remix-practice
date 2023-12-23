@@ -38,6 +38,7 @@ export default function Example() {
       }
     });
     setNavigation(updatedNavigation);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   return (
