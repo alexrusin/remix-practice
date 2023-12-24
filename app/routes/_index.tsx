@@ -14,9 +14,9 @@ export const meta: MetaFunction = () => {
 
 const navigation = [
   { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
+  { name: "About", href: "/about" },
   { name: "Marketplace", href: "#" },
-  { name: "Contact", href: "/contact" },
+  { name: "Support", href: "/dashboard/support" },
 ];
 
 export default function Index() {
