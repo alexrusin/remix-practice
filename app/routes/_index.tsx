@@ -16,7 +16,7 @@ const navigation = [
   { name: "Product", href: "#" },
   { name: "About", href: "/about" },
   { name: "Marketplace", href: "#" },
-  { name: "Support", href: "/dashboard/support" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Index() {
