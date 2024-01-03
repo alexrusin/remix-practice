@@ -1,6 +1,15 @@
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
+import { json, type LoaderFunctionArgs } from "@remix-run/node";
+
+export async function loader({ params }: LoaderFunctionArgs) {
+  const filePath = params["*"];
+  return json({
+    filePath,
+  });
+}
 
 export default function Dashboard404() {
+  const { filePath } = useLoaderData<typeof loader>();
   return (
     <>
       <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -10,7 +19,9 @@ export default function Dashboard404() {
             Page unavailable
           </h1>
           <p className="mt-6 text-base leading-7 text-gray-600">
-            Sorry, this page is currently unavailable
+            Sorry, this page{" "}
+            <span className="text-blue-400">/dashboard/{filePath}</span> is
+            unavailable
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
