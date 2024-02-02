@@ -26,7 +26,7 @@ export async function action({ request }: ActionFunctionArgs) {
   return null;
 }
 
-export default function NewTaskRoute() {
+export default function Tasks() {
   const { tasks } = useLoaderData<typeof loader>();
   const errors = useActionData<typeof action>();
 
