@@ -1,10 +1,5 @@
 import { type ActionFunctionArgs, json } from "@remix-run/node";
-import {
-  useActionData,
-  useLoaderData,
-  useNavigation,
-  Form,
-} from "@remix-run/react";
+import { useLoaderData, useFetcher } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
 const tasksList: string[] = [];
@@ -27,24 +22,26 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Tasks() {
+  const fetcher = useFetcher<typeof action>();
   const { tasks } = useLoaderData<typeof loader>();
-  const errors = useActionData<typeof action>();
+  const errors = fetcher.data;
 
   const $form = useRef<HTMLFormElement>(null);
-  const navigation = useNavigation();
 
   useEffect(
     function resetFormOnSuccess() {
-      if (navigation.state === "idle" && errors === null) {
+      console.log("fetcher state", fetcher.state);
+      console.log("errors", errors);
+      if (fetcher.state === "idle" && errors === null) {
         $form.current?.reset();
       }
     },
-    [navigation.state, errors]
+    [fetcher.state, errors]
   );
 
   return (
     <div className="flex justify-center mt-8">
-      <Form
+      <fetcher.Form
         method="post"
         ref={$form}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -69,7 +66,7 @@ export default function Tasks() {
         <ul className="mt-6">
           {tasks && tasks.map((task) => <li key={task}>{task}</li>)}
         </ul>
-      </Form>
+      </fetcher.Form>
     </div>
   );
 }
